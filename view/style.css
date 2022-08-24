@@ -1,0 +1,78 @@
+* {
+    font-family: sans-serif;
+}
+
+
+
+.jumbotron {
+    padding: 2rem 1rem;
+    background-color: #e2edff;
+   
+}
+
+body {
+    background-color: #e2edff;
+}
+
+#belum_login {
+    height: 60vh;
+    
+
+}
+
+#belum_login h2 {
+    margin-top:50px;
+}
+
+#belum_login a {
+    text-decoration: none;
+}
+
+.login_register {
+    
+    margin-bottom: 80px;
+}
+
+
+
+#tentang {
+    background-color:#e2edff; 
+    height:50vh;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+#kotak {
+    min-height: 80vh;
+}
+
+#error {
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+}
+
+#semarak {
+    min-height: 70vh;
+    background-color:#e2edff;
+}
+
+footer {
+    padding: 30px;
+}
+
+
