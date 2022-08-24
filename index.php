@@ -27,6 +27,13 @@ $data = post_beranda();
           <a class="nav-link" href="login.php"><i class="fa-solid fa-graduation-cap me-2"></i>Akun</a>
         </li>
         <?php } ?>
+
+
+        <?php if(isset($_SESSION['user'])) {?>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php"><i class="fa-solid fa-graduation-cap me-2"></i>Logout</a>
+        </li>
+        <?php } ?>
         
        
         
@@ -34,6 +41,21 @@ $data = post_beranda();
     </div>
   </div>
 </nav>
+
+<?php if(isset($_SESSION['msg'])) { ?>
+<section id="msg">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="alert alert-success animate__animated animate__backInLeft" role="alert">
+                <?php echo $_SESSION['msg'];
+                      unset($_SESSION['msg']); ?>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+<?php } ?>
 
 <section class="jumbotron text-center animate__animated animate__backInLeft mt-5" >
   <img src="assets/maskot.png" alt="maskot" >

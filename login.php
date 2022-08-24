@@ -12,8 +12,10 @@ if(isset($_POST['login'])) {
         if(login_cek_nama($nama)) {
           if(cek_data($nama,$pw)) {
             $_SESSION['user'] = $nama;
-            
+            $_SESSION['msg']= "Berhasil login!";
             header('Location: index.php');
+        } else {
+          $error = "Password salah!";
         }
         } else {
           $error = "User tidak terdaftar!";
@@ -52,6 +54,22 @@ if(isset($_POST['login'])) {
     </div>
   </div>
 </nav>
+
+<section>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col">
+            <?php if($error != '')  { ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $error; ?>
+                </div>
+                <?php } ?>
+                    
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="vh-100 login_register"  >
   <div class="container-fluid h-custom">
