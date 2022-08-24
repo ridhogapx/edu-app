@@ -9,8 +9,14 @@ if(isset($_POST['login'])) {
     $nama = $_POST['username'];
     $pw = $_POST['password'];
     if(!empty(trim($nama)) && !empty(trim($pw)) ) {
-        if(cek_data($nama,$pw)) {
-            echo "Berhasil";
+        if(login_cek_nama($nama)) {
+          if(cek_data($nama,$pw)) {
+            $_SESSION['user'] = $nama;
+            
+            header('Location: index.php');
+        }
+        } else {
+          $error = "User tidak terdaftar!";
         }
 
     } else {

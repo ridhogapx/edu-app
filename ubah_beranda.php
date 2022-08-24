@@ -35,9 +35,11 @@ if(isset($_POST['submit'])) {
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa-solid fa-chalkboard me-2"></i>Papan Informasi</a>
         </li>
+        <?php if(!isset($_SESSION['user'])) { ?>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-solid fa-graduation-cap me-2"></i>Akun</a>
+          <a class="nav-link" href="login.php"><i class="fa-solid fa-graduation-cap me-2"></i>Akun</a>
         </li>
+        <?php } ?>
         
        
         

@@ -43,4 +43,17 @@ function cek_data($nama,$pw) {
     }
 }
 
+function login_cek_nama($nama) {
+    global $koneksi;
+    $nama  = mysqli_real_escape_string($koneksi,$nama);
+    $query = "SELECT username FROM daftar_user WHERE username='$nama' ";
+    if($result = mysqli_query($koneksi,$query)) {
+        if(mysqli_num_rows($result) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 ?>
