@@ -36,9 +36,9 @@ require_once 'core/init.php';
 
 
 <!-- Maskot -->
-<section class="jumbotron text-center animate__animated animate__backInLeft mt-5" >
-  <img src="assets/maskot2.png" alt="maskot" >
-  <h1 class="display-4">Oops, kamu belum loginn</h1>
+<section class="jumbotron text-center animate__animated animate__backInLeft " >
+  <img src="assets/maskot_remake2.png" alt="maskot" height="450" >
+  <h1 class="display-4">Oops, kamu belum login</h1>
   <p class="lead fs-5">Silahkan <a href="login.php">Login</a> terlebih dahulu.</p>
   
 </section>
