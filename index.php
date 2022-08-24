@@ -91,8 +91,8 @@ $data = post_beranda();
 
 <section id="semarak" >
    <div class="container">
-    <div class="row text-center">
-      <div class="col mb-3">
+    <div class="row text-center mb-5">
+      <div class="col">
         <h2>Bangun digitalisasi dalam dunia pendidikan!</h2>
         <p class="fs-5">Belajar lebih efektif dengan materi digital.</p>
         <a class="btn btn-primary btn-lg" href="lorong_kelas.php" role="button">Ayo Belajar!</a>
@@ -102,16 +102,47 @@ $data = post_beranda();
    </div>
 </section>
 
-<section id="tentang">
+<section id="about_us">
   <div class="container">
-    <div class="row">
+    <div class="row text-center mb-3">
       <div class="col">
-        
+        <h2>Tentang Kami</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center ">
+      <div class="col-md-4 mb-3">
+      <div class="card" style="width: 18rem;">
+       <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
+        <div class="card-body">
+          <h5 class="card-title">Ridho Galih Pambudi</h5>
+              <p class="card-text">Web Developer</p>
+                <a href="#" class="btn btn-primary">Lihat Profile</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-4 mb-3">
+      <div class="card" style="width: 18rem;">
+       <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
+        <div class="card-body">
+          <h5 class="card-title">Ridwan Rafli Hidayat</h5>
+              <p class="card-text">Admin Web</p>
+                <a href="#" class="btn btn-primary">Lihat Profile</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-4 mb-3">
+      <div class="card" style="width: 18rem;">
+       <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
+        <div class="card-body">
+          <h5 class="card-title">Ahmad Zakariya</h5>
+              <p class="card-text">UI / UX & Designer</p>
+                <a href="#" class="btn btn-primary">Lihat Profile</a>
+  </div>
+</div>
       </div>
     </div>
   </div>
 </section>
-
 
 
 
