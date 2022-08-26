@@ -14,19 +14,8 @@ body {
     background-color: #e2edff;
 }
 
-#belum_login {
-    height: 60vh;
-    
 
-}
 
-#belum_login h2 {
-    margin-top:50px;
-}
-
-#belum_login a {
-    text-decoration: none;
-}
 
 .login_register {
     
@@ -37,10 +26,7 @@ body {
     margin-top: 98px;
 }
 
-#tentang {
-    background-color:#e2edff; 
-    height:50vh;
-}
+
 
 .divider:after,
 .divider:before {
@@ -58,9 +44,7 @@ height: 100%;
 }
 }
 
-#kotak {
-    min-height: 80vh;
-}
+
 
 #error {
     color: red;
@@ -68,10 +52,7 @@ height: 100%;
     padding: 10px;
 }
 
-#semarak {
-    
-    background-color:#e2edff;
-}
+
 
 footer {
     padding: 30px;

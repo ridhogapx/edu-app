@@ -81,7 +81,7 @@ $data = post_beranda();
 
       </div>
       <div class="row text-center">
-        <div class="col">
+        <div class="col mb-5">
         <a class="btn btn-primary btn-lg" href="ubah_beranda.php" role="button">Ubah</a>
         </div>
       </div>
