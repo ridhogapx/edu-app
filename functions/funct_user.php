@@ -76,8 +76,7 @@ function get_info_per_user($id) {
     global $koneksi;
     $query = "SELECT * FROM daftar_user WHERE id=$id ";
     $result = mysqli_query($koneksi,$query);
-    $get = mysqli_fetch_assoc($result);
-    return $get;
+    return $result;
 }
 
 ?>

@@ -93,12 +93,15 @@ $info_admin = cek_role();
         </div>
 
       </div>
-      <?php if(cek_tingkat($_SESSION['user']) == 1) { ?>
+      <?php if(isset($_SESSION['user'])) { 
+        if(cek_tingkat($_SESSION['user'])) {
+        ?>
       <div class="row text-center">
         <div class="col mb-5">
         <a class="btn btn-primary btn-lg" href="ubah_beranda.php" role="button">Ubah</a>
         </div>
       </div>
+      <?php } ?>
       <?php } ?>
 
     </div>
@@ -126,7 +129,9 @@ $info_admin = cek_role();
     </div>
     
     <div class="row justify-content-center ">
-    <?php while($get_info = mysqli_fetch_assoc($info_admin)) { ?>
+    <?php while($get_info = mysqli_fetch_assoc($info_admin)) { 
+      $_SESSION['id'] = $get_info['id'];
+      ?>
       <div class="col-md-4 mb-3">
       <div class="card" style="width: 18rem;">
        <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
@@ -139,12 +144,52 @@ $info_admin = cek_role();
               }elseif($get_info['role'] == 3){
                 echo "Admin Web";
               }?></p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Lihat
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#info_user_modal<?php echo $get_info['id'];?>">
+  Info User
 </button>
   </div>
 </div>
       </div>
+      <!-- Modal -->
+<div class="modal fade" id="info_user_modal<?php echo $get_info['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Info <?php echo $get_info['username']. " ".  "#" . $get_info['id'] ; ?></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 ">
+        <img src="assets/img_profile/default.jpeg" alt="profile">
+      </div>
+      <div class="col-md-6 ">
+        <p><b><i class="fa-solid fa-circle-info me-2"></i>Info User</b></p>
+        <p>Nama : <?php echo $get_info['nama'] . " "; ?>#<?php echo $get_info['id']; ?> </p>
+        <p>Role : <?php if($get_info['role'] == 1) {
+                echo "Web Developer";
+              } elseif($get_info['role']== 2) {
+                echo "UI / UX & Designer";
+              }elseif($get_info['role'] == 3){
+                echo "Admin Web";
+              }?></p>
+        
+
+
+      </div>
+    </div>
+    
+  
+  </div>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        <button type="button" class="btn btn-primary">Tambah Teman</button>
+      </div>
+    </div>
+  </div>
+</div>
       <?php } ?>
      
       
@@ -152,28 +197,8 @@ $info_admin = cek_role();
   </div>
 </section>
 
-<!-- Modal -->
-<?php
-$id = $_GET['id'];
 
-?>
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 
