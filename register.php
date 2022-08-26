@@ -2,6 +2,10 @@
 require_once 'view/header.php';
 require_once 'core/init.php';
 
+if(isset($_SESSION['user'])) {
+  header('Location: index.php');
+}
+
 $error = '';
 $msg_berhasil = '';
 

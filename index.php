@@ -3,6 +3,9 @@ require_once 'view/header.php';
 require_once 'core/init.php';
 
 $data = post_beranda();
+$info_admin = cek_role();
+
+
 ?>
 
 <nav class="navbar fixed-top navbar-expand-lg bg-primary navbar-dark shadow-sm" id="navbar">
@@ -30,8 +33,17 @@ $data = post_beranda();
 
 
         <?php if(isset($_SESSION['user'])) {?>
-        <li class="nav-item">
-          <a class="nav-link" href="logout.php"><i class="fa-solid fa-graduation-cap me-2"></i>Logout</a>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user me-2"></i>
+            Akun
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Ganti Profile</a></li>
+            <li><a class="dropdown-item" href="#">Akun Saya</a></li>
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            
+            
+          </ul>
         </li>
         <?php } ?>
         
@@ -62,6 +74,7 @@ $data = post_beranda();
   <h1 class="display-4">Halo, selamat malam!</h1>
   <p class="lead fs-5">Selamat datang di MUTU Edu </p>
   
+  
 </section>
 
 <section id="tentang" >
@@ -70,7 +83,7 @@ $data = post_beranda();
         <div class="col mb-3">
           <h2>Apa itu MUTU Edu?</h2>
         </div>
-        <div class="row fs-5">
+        <div class="row fs-5 mb-5">
           <div class="col">
             <p><?php echo $data['post']; ?>
 
@@ -80,17 +93,19 @@ $data = post_beranda();
         </div>
 
       </div>
+      <?php if(cek_tingkat($_SESSION['user']) == 1) { ?>
       <div class="row text-center">
         <div class="col mb-5">
         <a class="btn btn-primary btn-lg" href="ubah_beranda.php" role="button">Ubah</a>
         </div>
       </div>
+      <?php } ?>
 
     </div>
 </section>
 
 <section id="semarak" >
-   <div class="container">
+   <div class="container ">
     <div class="row text-center mb-5">
       <div class="col">
         <h2>Bangun digitalisasi dalam dunia pendidikan!</h2>
@@ -109,40 +124,56 @@ $data = post_beranda();
         <h2>Tentang Kami</h2>
       </div>
     </div>
+    
     <div class="row justify-content-center ">
+    <?php while($get_info = mysqli_fetch_assoc($info_admin)) { ?>
       <div class="col-md-4 mb-3">
       <div class="card" style="width: 18rem;">
        <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
         <div class="card-body">
-          <h5 class="card-title">Ridho Galih Pambudi</h5>
-              <p class="card-text">Web Developer</p>
-                <a href="#" class="btn btn-primary">Lihat Profile</a>
+          <h5 class="card-title"><?php echo $get_info['nama']. " " . "#". $get_info['id'] ; ?></h5>
+              <p class="card-text"><?php if($get_info['role'] == 1) {
+                echo "Web Developer";
+              } elseif($get_info['role']== 2) {
+                echo "UI / UX & Designer";
+              }elseif($get_info['role'] == 3){
+                echo "Admin Web";
+              }?></p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Lihat
+</button>
   </div>
 </div>
       </div>
-      <div class="col-md-4 mb-3">
-      <div class="card" style="width: 18rem;">
-       <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
-        <div class="card-body">
-          <h5 class="card-title">Ridwan Rafli Hidayat</h5>
-              <p class="card-text">Admin Web</p>
-                <a href="#" class="btn btn-primary">Lihat Profile</a>
-  </div>
-</div>
-      </div>
-      <div class="col-md-4 mb-3">
-      <div class="card" style="width: 18rem;">
-       <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
-        <div class="card-body">
-          <h5 class="card-title">Ahmad Zakariya</h5>
-              <p class="card-text">UI / UX & Designer</p>
-                <a href="#" class="btn btn-primary">Lihat Profile</a>
-  </div>
-</div>
-      </div>
+      <?php } ?>
+     
+      
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<?php
+$id = $_GET['id'];
+
+?>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -56,4 +56,28 @@ function login_cek_nama($nama) {
     }
 }
 
+function cek_tingkat($nama) {
+    global $koneksi;
+    $query = "SELECT tingkat FROM daftar_user WHERE username='$nama'";
+    $result = mysqli_query($koneksi,$query);
+    $get = mysqli_fetch_assoc($result)['tingkat'];
+    return $get;
+    
+}
+
+function cek_role() {
+    global $koneksi;
+    $query = "SELECT * FROM daftar_user WHERE tingkat=1 ";
+    $result = mysqli_query($koneksi,$query);
+    return $result;
+}
+
+function get_info_per_user($id) {
+    global $koneksi;
+    $query = "SELECT * FROM daftar_user WHERE id=$id ";
+    $result = mysqli_query($koneksi,$query);
+    $get = mysqli_fetch_assoc($result);
+    return $get;
+}
+
 ?>

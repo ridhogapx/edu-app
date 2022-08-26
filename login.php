@@ -4,6 +4,9 @@ require_once 'core/init.php';
 
 $error = '';
 
+if(isset($_SESSION['user'])) {
+    header('Location: index.php');
+}
 
 if(isset($_POST['login'])) {
     $nama = $_POST['username'];
