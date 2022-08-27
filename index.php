@@ -73,8 +73,11 @@ $info_admin = cek_role();
 
 <section class="jumbotron text-center animate__animated animate__backInLeft mt-5" >
   <img src="assets/maskot.png" alt="maskot" >
-  <h1 class="display-4"><?php waktu();?>, <?php if(isset($_SESSION['user'])) {nama_panggilan($_SESSION['user']);} ?>!</h1>
-  <p class="lead fs-5">Selamat datang di MUTU Edu </p>
+ 
+  <h3 class="display-4"><?php waktu(); ?> <?php if(isset($_SESSION['user'])) {
+   nama_panggilan($_SESSION['user']);
+  } ?>!</h1> 
+  <h3 class="lead fs-5">Selamat datang di MUTU Edu</h3>
   
   
 </section>

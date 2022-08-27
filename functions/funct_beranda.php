@@ -34,15 +34,15 @@ function waktu() {
      date_default_timezone_set("Asia/Jakarta");
     $jam = date("H");
     if(00 <= $jam && $jam <= 03) {
-        echo "Sudah larut malam. Jangan lupa istirahat kak";
+        echo "Jangan lupa istirahat kak, ";
     }elseif(04<= $jam && $jam<= 10) {
-        echo "Selamat pagi";
+        echo "Selamat pagi, ";
     }elseif(11<= $jam && $jam<=14) {
-        echo "Selamat siang";
+        echo "Selamat siang, ";
     }elseif(15<= $jam && $jam<=18) {
-        echo "Selamat sore";
+        echo "Selamat sore, ";
     }elseif(19<=$jam && $jam<=23) {
-        echo "Selamat malam";
+        echo "Selamat malam, ";
     }
 }
 
