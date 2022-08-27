@@ -73,7 +73,7 @@ $info_admin = cek_role();
 
 <section class="jumbotron text-center animate__animated animate__backInLeft mt-5" >
   <img src="assets/maskot.png" alt="maskot" >
-  <h1 class="display-4">Halo, selamat malam!</h1>
+  <h1 class="display-4"><?php waktu();?>, <?php if(isset($_SESSION['user'])) {nama_panggilan($_SESSION['user']);} ?>!</h1>
   <p class="lead fs-5">Selamat datang di MUTU Edu </p>
   
   
@@ -96,7 +96,7 @@ $info_admin = cek_role();
 
       </div>
       <?php if(isset($_SESSION['user'])) { 
-        if(cek_tingkat($_SESSION['user'])) {
+        if(cek_tingkat($_SESSION['user']) == 1) {
         ?>
       <div class="row text-center">
         <div class="col mb-5">
@@ -131,14 +131,14 @@ $info_admin = cek_role();
     </div>
     
     <div class="row justify-content-center ">
-    <?php while($get_info = mysqli_fetch_assoc($info_admin)) { 
+    <?php while($get_info = $info_admin->fetch_assoc()) { 
       $_SESSION['id'] = $get_info['id'];
       ?>
       <div class="col-md-4 mb-3">
       <div class="card" style="width: 18rem;">
        <img src="assets/img_profile/default.jpeg" class="card-img-top" alt="Profile">
         <div class="card-body">
-          <h5 class="card-title"><?php echo $get_info['nama']. " " . "#". $get_info['id'] ; ?></h5>
+          <h5 class="card-title"><?php echo $get_info['nama_lengkap']. " " . "#". $get_info['id'] ; ?></h5>
               <p class="card-text"><?php if($get_info['role'] == 1) {
                 echo "Web Developer";
               } elseif($get_info['role']== 2) {

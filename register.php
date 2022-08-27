@@ -13,10 +13,12 @@ if(isset($_POST['register'])) {
     $nama = $_POST['username'];
     $pw = $_POST['password'];
     $conf_pw = $_POST['conf_password'];
-    if(!empty(trim($nama)) && !empty(trim($pw)) && !empty(trim($conf_pw)) ) {
+    $nama_lengkap = $_POST['nama_lengkap'];
+    $nama_panggilan = $_POST['nama_panggilan'];
+    if(!empty(trim($nama)) && !empty(trim($pw)) && !empty(trim($conf_pw)) && !empty(trim($nama_lengkap)) && !empty(trim($nama_panggilan)) ) {
         if(register_cek_nama($nama)) {
             if($pw == $conf_pw) {
-                if(register_user($nama,$pw)) {
+                if(register_user($nama,$pw,$nama_lengkap,$nama_panggilan)) {
                     $msg_berhasil = "Berhasil register!";
                 } else {
                     $error = "Gagal register!";
@@ -99,22 +101,34 @@ if(isset($_POST['register'])) {
 
           
 
-          <!-- Email input -->
-          <h2 class="mb-3">Register</h2>
+          <!-- Username input -->
+          <h2 class="mt-3">Register</h2>
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" name="username" class="form-control form-control-lg"
-              placeholder="Masukkan username" />
+              placeholder="Buatlah username yang unik ^-^" />
             <label class="form-label" for="form3Example3">Username</label>
+          </div>
+          <!-- Input nama lengkap -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example3" name="nama_lengkap" class="form-control form-control-lg"
+              placeholder="Siapa nama lengkap kamu?" />
+            <label class="form-label" for="form3Example3">Nama Lengkap</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example3" name="nama_panggilan" class="form-control form-control-lg"
+              placeholder="Kamu biasa dipanggil apa?" />
+            <label class="form-label" for="form3Example3">Nama Panggilan</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" name="password" class="form-control form-control-lg"
-              placeholder="Masukkan password" />
+              placeholder="Masukkan password yang mudah diingat" />
             <label class="form-label" for="form3Example4">Password</label>
           </div>
 
-          <!-- Konfirmasi Password input -->
+          <!-- Konfirmasi password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" name="conf_password" class="form-control form-control-lg"
               placeholder="Konfirmasi password" />
