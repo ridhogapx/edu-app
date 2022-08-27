@@ -4,10 +4,12 @@ $user = 'root';
 $pw = '';
 $db = 'edu_app';
 
-$koneksi = mysqli_connect($host,$user,$pw,$db);
+$koneksi = new mysqli($host,$user,$pw,$db);
 
-if(!$koneksi) {
-    die("Gagal menghubungkan database!" . mysqli_connect_error());
+if($koneksi->connect_errno) {
+    echo "Gagal terhubung ke database" . $koneksi->connect_error;
 }
+
+
 
 ?>

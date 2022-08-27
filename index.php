@@ -1,12 +1,14 @@
 <?php
-require_once 'view/header.php';
+
 require_once 'core/init.php';
 
-$data = post_beranda();
+
 $info_admin = cek_role();
 
 
 ?>
+
+<?php require_once 'view/header.php'; ?>
 
 <nav class="navbar fixed-top navbar-expand-lg bg-primary navbar-dark shadow-sm" id="navbar">
   <div class="container">
@@ -38,8 +40,8 @@ $info_admin = cek_role();
             Akun
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Ganti Profile</a></li>
-            <li><a class="dropdown-item" href="#">Akun Saya</a></li>
+            <li><a class="dropdown-item" href="view_user.php?action=profile_setting">Ganti Profile</a></li>
+            <li><a class="dropdown-item" href="view_user.php?action=my_info">Akun Saya</a></li>
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
             
             
@@ -85,7 +87,7 @@ $info_admin = cek_role();
         </div>
         <div class="row fs-5 mb-5">
           <div class="col">
-            <p><?php echo $data['post']; ?>
+            <p><?php post_beranda(); ?>
 
             </p>
           </div>

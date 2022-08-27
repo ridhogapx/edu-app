@@ -1,9 +1,10 @@
 <?php
-require_once 'view/header.php';
+
 require_once 'core/init.php';
 
 
 ?>
+<?php require_once 'view/header.php'; ?>
 
 <nav class="navbar  navbar-expand-lg bg-primary navbar-dark shadow-sm" id="navbar">
   <div class="container">

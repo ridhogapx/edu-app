@@ -1,8 +1,8 @@
 <?php
-require_once 'view/header.php';
+
 require_once 'core/init.php';
 $error = '';
-$data = post_beranda();
+
 
 if(isset($_POST['submit'])) {
     $box_edit = $_POST['box_edit'];
@@ -17,6 +17,8 @@ if(isset($_POST['submit'])) {
 
 
 ?>
+
+<?php require_once 'view/header.php'; ?>
 
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm" id="navbar">
   <div class="container">
@@ -61,7 +63,7 @@ if(isset($_POST['submit'])) {
         <p id="error"><?php echo $error; ?></p>
         <?php } ?>
         <div class="mb-3">
-        <textarea class="form-control" id="box_edit" rows="20" name="box_edit"><?php echo $data['post']; ?></textarea>
+        <textarea class="form-control" id="box_edit" rows="20" name="box_edit"><?php echo post_beranda(); ?></textarea>
         </div>
     
         </div>
